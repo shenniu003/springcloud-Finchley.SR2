@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///D:/my_study/study_java/springcloud_3/config-server/src/main/resources/config
+  profiles:
+    active: native
+server:
+  port: 4020
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1020/eureka/,http://localhost:1021/eureka/,http://localhost:1022/eureka/
+  instance:
+    appname: ${spring.application.name}
+    prefer-ip-address: true

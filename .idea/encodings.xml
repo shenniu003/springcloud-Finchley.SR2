@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/config-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-client/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-server/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/profiles/node/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zk-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zk-server" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    config:
+      name: config-server    #application
+      profile: conf1,conf0   #profile 后来者覆盖，没有合并
+      label:                 #label
+#      uri: http://10.0.75.1:4020
+      discovery:
+        enabled: true
+        service-id: CONFIG-SERVER
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1020/eureka/,http://localhost:1021/eureka/,http://localhost:1022/eureka/
+  instance:
+    appname: ${spring.application.name}
+    prefer-ip-address: true

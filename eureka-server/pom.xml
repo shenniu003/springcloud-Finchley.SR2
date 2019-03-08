@@ -10,20 +10,26 @@
     </parent>
     <groupId>com.sm</groupId>
     <artifactId>eureka-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>eureka-server</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
+
+        <scripts_packageName>${project.artifactId}-${project.version}</scripts_packageName>
+        <scripts_bootMain>com.sm.EurekaServerApplication</scripts_bootMain>
     </properties>
 
     <profiles>
         <profile>
             <id>node</id>
             <properties>
+                <!--传递给脚本的参数值-->
                 <activeProfile>node</activeProfile>
+                <package-name>${scripts_packageName}</package-name>
+                <boot-main>${scripts_bootMain}</boot-main>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -33,13 +39,17 @@
             <id>node1</id>
             <properties>
                 <activeProfile>node1</activeProfile>
-           </properties>
+                <package-name>${scripts_packageName}</package-name>
+                <boot-main>${scripts_bootMain}</boot-main>
+            </properties>
         </profile>
         <profile>
             <id>node2</id>
             <properties>
                 <activeProfile>node2</activeProfile>
-           </properties>
+                <package-name>${scripts_packageName}</package-name>
+                <boot-main>${scripts_bootMain}</boot-main>
+            </properties>
         </profile>
     </profiles>
 
@@ -73,14 +83,21 @@
         <resources>
             <resource>
                 <directory>${project.basedir}/src/main/profiles/${activeProfile}</directory>
-                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
                 <includes>
-                    <include>*.yml</include>
+                    <include>static/**</include>
+                    <include>templates/**</include>
                 </includes>
             </resource>
         </resources>
 
         <plugins>
+            <!--<plugin>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -92,10 +109,58 @@
             </plugin>
 
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>${scripts_bootMain}</mainClass>
+                        </manifest>
+                    </archive>
+                    <!--打包排除项-->
+                    <excludes>
+                        <exclude>**/*.yml</exclude>
+                        <exclude>**/*.properties</exclude>
+                        <exclude>**/*.xml</exclude>
+                        <exclude>**/*.sh</exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-a-jar</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.4</version>
+                <!-- The configuration of the plugin -->
+                <configuration>
+                    <!-- Specifies the configuration file of the assembly plugin -->
+                    <descriptors>
+                        <descriptor>${project.basedir}/src/main/assembly/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>

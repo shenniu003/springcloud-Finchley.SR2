@@ -1,0 +1,57 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd
+http://maven.apache.org/ASSEMBLY/2.0.0 ">
+    <id>${activeProfile}</id>
+    <!--打包成一个用于发布的zip文件-->
+    <formats>
+        <format>zip</format>
+    </formats>
+    <!--true：zip中生成一级目录(此处屏蔽，配合脚本需要profiles后缀)-->
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <!--打包进zip文件的lib目录-->
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>${package-name}-${activeProfile}/lib</outputDirectory>
+            <unpack>false</unpack>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <!-- 配置文件打包进zip文件的conf目录 -->
+        <fileSet>
+            <directory>${project.basedir}/src/main/profiles/${activeProfile}</directory>
+            <outputDirectory>${package-name}-${activeProfile}/conf</outputDirectory>
+            <includes>
+                <include>**/*</include>
+                <!--<include>*.xml</include>-->
+                <!--<include>*.properties</include>-->
+                <!--<include>*.yml</include>-->
+            </includes>
+        </fileSet>
+
+        <!--启动脚本打包进zip文件-->
+        <fileSet>
+            <directory>${project.basedir}/src/main/scripts</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>**/*</include>
+            </includes>
+            <!-- 文件文件权限为777 -->
+            <fileMode>777</fileMode>
+            <!-- 目录权限为777  -->
+            <directoryMode>777</directoryMode>
+            <!--脚本中参数变量为pom中的值 关键-->
+            <filtered>true</filtered>
+        </fileSet>
+
+        <!-- 项目编译出来的jar打包进zip文件 -->
+        <fileSet>
+            <directory>${project.build.directory}</directory>
+            <outputDirectory>${package-name}-${activeProfile}/</outputDirectory>
+            <includes>
+                <include>*.jar</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

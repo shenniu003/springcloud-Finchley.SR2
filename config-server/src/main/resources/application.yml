@@ -13,7 +13,8 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:1020/eureka/,http://localhost:1021/eureka/,http://localhost:1022/eureka/
+#      defaultZone: http://localhost:1020/eureka/,http://localhost:1021/eureka/,http://localhost:1022/eureka/
+      defaultZone: http://192.168.155.224:1020/eureka/
   instance:
     appname: ${spring.application.name}
     prefer-ip-address: true

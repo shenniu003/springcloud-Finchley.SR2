@@ -1238,7 +1238,7 @@
       <workItem from="1551943985440" duration="49000" />
       <workItem from="1551944107737" duration="723000" />
       <workItem from="1551944940876" duration="18648000" />
-      <workItem from="1552017780789" duration="6912000" />
+      <workItem from="1552017780789" duration="6926000" />
     </task>
     <task id="LOCAL-00001" summary="add&#10;1.增加profiles方式&#10;2.增加sh启动脚本">
       <created>1552028277982</created>
@@ -1254,11 +1254,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552028478054</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add&#10;1.增加profiles方式&#10;2.增加sh启动脚本">
+      <created>1552028637768</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1552028637768</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174117000" />
+    <option name="totallyTimeSpent" value="174131000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

@@ -1,12 +1,19 @@
 spring:
   application:
     name: provider
+  data:
+    elasticsearch:
+      cluster-name: shenniu_elasticsearch
+      cluster-nodes: 192.168.181.44:9300
 server:
   port: 2020
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:1020/eureka/,http://localhost:1021/eureka/,http://localhost:1022/eureka/
+      defaultZone: http://localhost:1020/eureka/
+#      ,http://localhost:1021/eureka/,http://localhost:1022/eureka/
   instance:
     appname: ${spring.application.name}
     prefer-ip-address: true
+    instance-id: ${spring.application.name}_111
+

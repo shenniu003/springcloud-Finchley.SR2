@@ -51,6 +51,14 @@
                 <boot-main>${scripts_bootMain}</boot-main>
             </properties>
         </profile>
+        <profile>
+            <id>node3</id>
+            <properties>
+                <activeProfile>node3</activeProfile>
+                <package-name>${scripts_packageName}</package-name>
+                <boot-main>${scripts_bootMain}</boot-main>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
@@ -94,10 +102,25 @@
         </resources>
 
         <plugins>
-            <!--<plugin>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>
+                            <groupId>non-exists</groupId>
+                            <artifactId>non-exists</artifactId>
+                        </include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

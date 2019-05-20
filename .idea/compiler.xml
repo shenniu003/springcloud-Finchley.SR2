@@ -11,7 +11,7 @@
         <module name="consumer" />
         <module name="eureka-server" />
         <module name="provider" />
-        <module name="springcloud_3" />
+        <module name="sc-common" />
         <module name="zk-client" />
         <module name="zk-server" />
       </profile>
@@ -22,6 +22,7 @@
       <module name="consumer" target="1.8" />
       <module name="eureka-server" target="1.8" />
       <module name="provider" target="1.8" />
+      <module name="sc-common" target="1.8" />
       <module name="springcloud_3" target="1.5" />
       <module name="zk-client" target="1.8" />
       <module name="zk-server" target="1.8" />

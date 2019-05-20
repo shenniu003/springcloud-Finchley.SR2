@@ -7,10 +7,12 @@ eureka:
   instance:
     appname: ${spring.application.name}
   client:
-#    register-with-eureka: false  #开启自动注册到eureka中心，高可用
-#    fetch-registry: false
+    register-with-eureka: false  #开启自动注册到eureka中心，高可用
+    fetch-registry: false
     service-url:
-      defaultZone: http://localhost:1020/eureka/,http://localhost:1021/eureka/,http://localhost:1022/eureka/
+      defaultZone: http://localhost:1020/eureka/,http://localhost:1021/eureka/,http://localhost:1022/eureka/,http://localhost:1033/eureka/
+#    service-url:
+#      defaultZone: http://localhost:1020/eureka/
   server:
     eviction-interval-timer-in-ms: 30000  #检测失效信息的时间
     enable-self-preservation: false  #关闭自我保护

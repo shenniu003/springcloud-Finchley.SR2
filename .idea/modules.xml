@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/consumer/consumer.iml" filepath="$PROJECT_DIR$/consumer/consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/provider/provider.iml" filepath="$PROJECT_DIR$/provider/provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sc-common/sc-common.iml" filepath="$PROJECT_DIR$/sc-common/sc-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/springcloud_3.iml" filepath="$PROJECT_DIR$/springcloud_3.iml" />
       <module fileurl="file://$PROJECT_DIR$/zk-client/zk-client.iml" filepath="$PROJECT_DIR$/zk-client/zk-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/zk-server/zk-server.iml" filepath="$PROJECT_DIR$/zk-server/zk-server.iml" />

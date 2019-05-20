@@ -35,6 +35,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>RELEASE</version>
         </dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency>
+
+		<!-- elasticsearch启动器 (必须)-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
     </dependencies>
 
 	<dependencyManagement>

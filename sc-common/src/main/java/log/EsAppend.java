@@ -80,7 +80,7 @@ public class EsAppend extends AppenderSkeleton {
         private HashMap<String, Object> map;
 
         public EsAppendTask(LoggingEvent loggingEvent, Layout layout) {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd\\'T\\'HH:mm:ss.SSSZ");
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
             map = new HashMap<String, Object>() {
                 {
                     put("timeStamp",df.format(new Date()));
